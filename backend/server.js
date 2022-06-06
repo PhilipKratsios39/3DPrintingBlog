@@ -7,24 +7,33 @@
 // The front end uses the response info to display it on the web page
 
 
-"use strict";
-
-const express = require("express");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
 
 const {getUsers,getOneUser,newUser,getAllPosts,getOnePost,newPost,editPost,deletePost,getAllComments,getOneComment,newComment, editComment, deleteComment, getPostComments } = require("./serverFuntions")
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 
-const PORT = 8000
+
+const express = require("express");
+
+;
+//require("dotenv").config({path: "./config.env"});
+const PORT = 5000;
+
+
+
+
+
+
+
 
 express()
-  .use(morgan("tiny"))
+   .use(morgan("tiny"))
   .use(express.static("public"))
   .use(bodyParser.json())
-  .use(express.urlencoded({ extended: false }))
+   .use(express.urlencoded({ extended: false }))
   .use("/", express.static(__dirname + "/"))
 
-  //User Collection
+//   //User Collection
  .get("/getUsers", getUsers )
  .get('/getUser/:userName', getOneUser)
   .post("/newUser", newUser)
@@ -36,7 +45,7 @@ express()
   .put("/updatePost/:_id", editPost)
   .delete("/deletePost/:_id", deletePost)
 
-  //Comments Collection
+//   //Comments Collection
  .get("/getComments", getAllComments)
  .get("/getCommentsByPostId/:_id", getPostComments)
    .get("/getComment/:_id", getOneComment)
@@ -47,6 +56,16 @@ express()
 .use((req, res) => res.status(404).type("txt").send("🤷‍♂️"))
 
 .listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
+// app.listen(port, () => {
+//   dbo.connectToServer(function (err){
+//     if(err)console.log(err);
+  
+//   });
+//   console.log(`Listening on port ${port}`);
+
+// });
+
 
 
 

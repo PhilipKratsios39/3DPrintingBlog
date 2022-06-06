@@ -24,10 +24,6 @@ const MONGO_URI = "mongodb://localhost:27017"
 const { MongoClient, ObjectId } = require("mongodb");
 const assert = require("assert");
 
-//require("dotenv").config();
-//const { MONGO_URI } = process.env;
-
-
 
 const options = {
   useNewUrlParser: true,

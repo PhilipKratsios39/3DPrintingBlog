@@ -66,6 +66,8 @@ useEffect(() => {
                  <FlexBox>
                      <h1>Community Discussion</h1>
                      <HorizRule></HorizRule>
+
+                     
                  {
                 userPostsState.map((post) => {
                     return (

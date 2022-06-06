@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import {React, useState, useEffect } from "react"
 // you may want to import hooks like useState() or useEffect() or useContext()
 // component name must be capital
 import styled from "styled-components"
@@ -78,7 +78,7 @@ function handleSignInSubmit(e) {
     setCurrentUserId(retrievedUserState._id)
     alert("Logged In")
   } else {
-    alert("Incorrect Password")
+    // alert("Incorrect Password")
   }
 
   setSignInState({
